@@ -1,0 +1,49 @@
+# granite-alert
+
+> A lightweight element wrapping-up [C3.js](http://c3js.org/), D3-based chart library
+> 
+> Polymer 1.5 ready
+
+## Doc & demo
+
+[https://lostinbrittany.github.io/granite-c3](https://lostinbrittany.github.io/granite-c3)
+
+## Install
+
+Install the component using [Bower](http://bower.io/):
+
+```sh
+$ bower install LostInBrittany/granite-alert --save
+```
+
+Or [download as ZIP](https://github.com/LostInBrittany/granite-alert/archive/gh-pages.zip).## Usage
+
+1. Import Web Components' polyfill (if needed):
+
+    ```html
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    ```
+
+2. Import Custom Element:
+
+    ```html
+    <link rel="import" href="bower_components/granite-alert/granite-alert.html">
+    ```
+
+3. Start using it!
+
+    ```html
+    <granite-c3 data="{{data}}" axis="{{axis}}"></granite-c3>
+    ```
+
+## Contributing
+
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
+
+## License
+
+[MIT License](http://opensource.org/licenses/MIT)

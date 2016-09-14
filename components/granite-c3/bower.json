@@ -1,0 +1,32 @@
+{
+  "name": "granite-c3",
+  "authors": [
+    "Horacio Gonzalez <horacio.gonzalez@gmail.com>"
+  ],
+  "description": "A lightweight element wrapping-up C3.js, D3-based chart library.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "lostinbrittany",
+    "d3",
+    "c3"
+  ],
+  "main": "granite-c3.html",
+  "license": "MIT",
+  "homepage": "https://github.com/LostInBrittany/granite-c3",
+  "ignore": [
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.5.0",
+    "c3": "^0.4.11",
+    "d3": "^3.5.17"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.6",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.3",
+    "paper-styles": "PolymerElements/paper-styles#^1.1.4",
+    "test-fixture": "PolymerElements/test-fixture#^1.1.1",
+    "web-component-tester": "^4.3.0"
+  }
+}
