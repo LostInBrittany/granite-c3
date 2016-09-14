@@ -1,9 +1,12 @@
 # granite-alert
 
-> A set of [Bootstrap-like alert](http://getbootstrap.com/components/#alerts) elements.
+> A lightweight element wrapping-up [C3.js](http://c3js.org/), D3-based chart library
 > 
 > Polymer 1.5 ready
 
+## Doc & demo
+
+[https://lostinbrittany.github.io/granite-c3](https://lostinbrittany.github.io/granite-c3)
 
 ## Install
 
@@ -30,18 +33,8 @@ Or [download as ZIP](https://github.com/LostInBrittany/granite-alert/archive/gh-
 3. Start using it!
 
     ```html
-    <granite-alert level="danger">This is a serious alert!</granite-alert>
+    <granite-c3 data="{{data}}" axis="{{axis}}"></granite-c3>
     ```
-
-
-## Attributes
-
-Attribute     | Type      | Default  | Description
----           | ---       | ---      | ---
-`level`       | *String*  | `"info"` | The level of the alert 
-
-Alowed values for `level`: `info`, `warning`, `danger` and `success`
-
 
 ## Contributing
 
