@@ -155,21 +155,24 @@
         font-size: 1.3em; }
 
       .c3-chart-arcs .c3-chart-arcs-background {
-        fill: #e0e0e0;
+        fill: var(--c3-gauge-background-color,#e0e0e0);
         stroke: none; }
 
       .c3-chart-arcs .c3-chart-arcs-gauge-unit {
-        fill: #000;
-        font-size: 16px; }
+        fill: var(--c3-gauge-unit-color,#000);
+        font-size: var(--c3-gauge-min-size, 16px); }
 
       .c3-chart-arcs .c3-chart-arcs-gauge-max {
-        fill: #777; }
+        fill: var(--c3-gauge-max-color,#777);
+        font-size: var(--c3-gauge-max-size); }
 
       .c3-chart-arcs .c3-chart-arcs-gauge-min {
-        fill: #777; }
+        fill: var(--c3-gauge-min-color,#777); 
+        font-size: var(--c3-gauge-min-size); }
 
       .c3-chart-arc .c3-gauge-value {
-        fill: #000;
+        fill: var(--c3-gauge-value-color,#000);
+        font-size: var(--c3-gauge-value-size);
         /*  font-size: 28px !important;*/ }
 
       .c3-chart-arc.c3-target g path {
