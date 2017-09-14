@@ -66,25 +66,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <div class="vertical-section-container centered">
 
       <h2>granite-c3</h2>
-      
-      <h3>Gauge</h3>
-      <demo-snippet class="centered-demo">
-        <template>
-          <granite-c3 
-            data='{"columns":  [ [ "answer", 42 ] ] ,"type": "gauge"}' 
-            gauge='{}' 
-            color='{"pattern":["#FF0000", "#F97600", "#F6C600", "#60B044"], "threshold":{"values":[30, 60, 90, 100]}}'
-            debug></granite-c3>
-        </template>
-      </demo-snippet>
 
       <h3>Time-series</h3>
       <demo-snippet class="centered-demo">
         <template>
           <granite-c3 
             data='{"x": "x", "columns": [["x", "2013-01-01", "2013-01-02", "2013-01-03", "2013-01-04", "2013-01-05", "2013-01-06"],["data1", 30, 200, 100, null, 150, 250],["data2",130, 340, 200, null, 200, 350]],"type": "step"}' 
-            axis='{ "x": {"type": "timeseries", "tick": { "format": "%Y-%m-%d"} } }'
-            debug></granite-c3>
+            axis='{ "x": {"type": "timeseries", "tick": { "format": "%Y-%m-%d"} } }'></granite-c3>
         </template>
       </demo-snippet>
 
