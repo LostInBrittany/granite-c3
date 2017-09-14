@@ -4,7 +4,7 @@
 
 > A lightweight element wrapping-up [C3.js](http://c3js.org/), D3-based chart library
 >
-> Polymer 1.5 ready
+> Hybrid Polymer 1.9 - 2.x 
 
 ## Doc & demo
 

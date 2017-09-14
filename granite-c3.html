@@ -27,7 +27,7 @@ Typical usage:
 @homepage index.html
 @demo demo/index.html
 -->
-<dom-module is="granite-c3">
+<dom-module id="granite-c3">
 
     <template>
       <style>
@@ -50,20 +50,21 @@ Typical usage:
     </template>
 
     <script>
+      /* global c3 */
       Polymer({
-        is: "granite-c3",
+        is: 'granite-c3',
 
         properties: {
           data: {
-            type: Object
+            type: Object,
           },
 
           axis: {
-            type: Object
+            type: Object,
           },
 
           grid: {
-            type: Object
+            type: Object,
           },
 
           regions: {
@@ -71,48 +72,53 @@ Typical usage:
           },
 
           legend: {
-            type: Object
+            type: Object,
           },
 
           tooltip: {
-            type: Object
+            type: Object,
           },
 
           point: {
-            type: Object
+            type: Object,
           },
 
           area: {
-            type: Object
+            type: Object,
           },
 
           bar: {
-            type: Object
+            type: Object,
           },
 
           pie: {
-            type: Object
+            type: Object,
           },
 
           donnut: {
-            type: Object
+            type: Object,
           },
 
           gauge: {
-            type: Object
+            type: Object,
           },
 
-          chart:  {
+          chart: {
             type: Object,
-            notify: true
+            notify: true,
           },
 
           options: {
             type: Object,
-            value: function(){
+            value: function() {
               return {};
-            }
-          }
+            },
+          },
+
+          debug: {
+            type: Boolean,
+            value: false,
+          },
         },
 
         ready: function() {
@@ -136,11 +142,15 @@ Typical usage:
             donnut: this.donnut,
             gauge: this.gauge,
           };
-          
+      
           for (var key in explicitBindings) {
             if (explicitBindings[key]) {
               options[key] = explicitBindings[key];
             }
+          }
+
+          if (this.debug) {
+            console.log('[granite-c3] C3  options', options, this.data);
           }
 
           this.chart = c3.generate(options);
@@ -149,9 +159,11 @@ Typical usage:
         },
 
         detached: function() {
-          if (this.chart)
+          if (this.chart) {
             return this.chart.destroy();
-        }
+          }
+        },
+
       });
     </script>
 
