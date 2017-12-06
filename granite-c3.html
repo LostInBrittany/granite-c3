@@ -184,6 +184,13 @@
               {name: 'c3', url: '../c3/c3.min.js'},
             ],
           },
+          /**
+           * If true, uses js hack to fix automatic vertical resizing. See https://github.com/c3js/c3/issues/1450#issuecomment-322841360
+           */ 
+           fixVerticalResizing: {
+             type: Boolean,
+             value: false
+           }
         };
       }
 
@@ -225,6 +232,13 @@
             this.options[key] = explicitBindings[key];
           }
         }
+
+        if (this.fixHeightResizing) {
+          this.options.onresized = function() {
+            this.selectChart.style('max-height', 'none');
+          }
+        }
+
         console.log('[granite-c3] _initChart', this.options);
 
         this.chart = c3.generate(this.options);
