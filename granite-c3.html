@@ -152,6 +152,14 @@
             },
           },
           /**
+           * True if the C3 dependencies have been loaded
+           * @private
+           */
+           _dependenciesReady: {
+            type: Boolean,
+            value: false,
+          },
+          /**
            * True if the C3 chart has been initialized
            * @private
            */
@@ -176,7 +184,20 @@
               {name: 'c3', url: '../c3/c3.min.js'},
             ],
           },
+          /**
+           * If true, uses js hack to fix automatic vertical resizing. See https://github.com/c3js/c3/issues/1450#issuecomment-322841360
+           */ 
+           fixVerticalResizing: {
+             type: Boolean,
+             value: false
+           }
         };
+      }
+
+      static get observers() {
+        return [
+          '_tryInitChart(data,_dependenciesReady)',
+        ];
       }
 
       _onDependencyReady(evt) {
@@ -184,7 +205,7 @@
           if (this.debug) {
             console.log('[granite-c3] _onDependencyReady - C3 ready');
           }
-          this._initChart();
+          this._dependenciesReady = true;
         }
       }
 
@@ -211,10 +232,26 @@
             this.options[key] = explicitBindings[key];
           }
         }
+
+        if (this.fixVerticalResizing) {
+          this.options.onresized = function() {
+            this.selectChart.style('max-height', 'none');
+          }
+        }
+
         console.log('[granite-c3] _initChart', this.options);
 
         this.chart = c3.generate(this.options);
         this._chartInitialized = true;
+      }
+
+      _tryInitChart() {
+        if (this.debug) {
+          console.log('[granite-c3] _tryInitChart', this.data, this._dependenciesReady, this._chartInitialized);
+        }
+        if (this._dependenciesReady && !this._chartInitialized && this.data) {
+          this._initChart();
+        }
       }
 
       _onDataChange() {

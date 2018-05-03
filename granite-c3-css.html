@@ -6,108 +6,168 @@
       /*-- Chart --*/
       .c3 svg {
         font: 10px sans-serif;
-        -webkit-tap-highlight-color: transparent; }
+        -webkit-tap-highlight-color: transparent;
+        @apply --granite-c3-svg;
+      }
 
       .c3 path, .c3 line {
         fill: none;
-        stroke: #000; }
+        stroke: #000;
+        @apply --granite-c3-line;
+      }
 
       .c3 text {
         -webkit-user-select: none;
         -moz-user-select: none;
-        user-select: none; }
+        user-select: none;
+        @apply --granite-c3-text;
+      }
 
       .c3-legend-item-tile,
       .c3-xgrid-focus,
       .c3-ygrid,
       .c3-event-rect,
       .c3-bars path {
-        shape-rendering: crispEdges; }
+        shape-rendering: crispEdges;
+      }
 
       .c3-chart-arc path {
-        stroke: #fff; }
+        stroke: #fff;
+        @apply --granite-c3-chart-arc-path;
+      }
 
       .c3-chart-arc text {
         fill: #fff;
-        font-size: 13px; }
+        font-size: 13px;
+        @apply --granite-c3-chart-arc-text;
+      }
 
       /*-- Axis --*/
       /*-- Grid --*/
       .c3-grid line {
-        stroke: #aaa; }
+        stroke: #aaa;
+        @apply --granite-c3-grid-line;
+      }
 
       .c3-grid text {
-        fill: #aaa; }
+        fill: #aaa;
+        @apply --granite-c3-grid-text;
+      }
 
       .c3-xgrid, .c3-ygrid {
-        stroke-dasharray: 3 3; }
+        stroke-dasharray: 3 3;
+      }
+
+      .c3-xgrid {
+        @apply --granite-c3-xgrid;
+      }
+
+      .c3-ygrid {
+        @apply --granite-c3-ygrid;
+      }
 
       /*-- Text on Chart --*/
       .c3-text.c3-empty {
         fill: #808080;
-        font-size: 2em; }
+        font-size: 2em;
+        @apply --granite-c3-text-empty;
+      }
 
       /*-- Line --*/
       .c3-line {
-        stroke-width: 1px; }
+        stroke-width: var(--granite-c3-line-stroke-width, 1px);
+      }
 
       /*-- Point --*/
       .c3-circle._expanded_ {
         stroke-width: 1px;
-        stroke: white; }
+        stroke: white;
+        @apply --granite-c3-circle-expanded;
+      }
 
       .c3-selected-circle {
         fill: white;
-        stroke-width: 2px; }
+        stroke-width: 2px;
+        @apply --granite-c3-selected-circle;
+      }
 
       /*-- Bar --*/
       .c3-bar {
-        stroke-width: 0; }
+        stroke-width: 0;
+        @apply --granite-c3-bar;
+      }
 
       .c3-bar._expanded_ {
         fill-opacity: 1;
-        fill-opacity: 0.75; }
+        fill-opacity: 0.75;
+        @apply --granite-c3-bar-expanded;
+      }
 
       /*-- Focus --*/
       .c3-target.c3-focused {
-        opacity: 1; }
+        opacity: 1;
+        @apply --granite-c3-target-focused;
+      }
 
       .c3-target.c3-focused path.c3-line, .c3-target.c3-focused path.c3-step {
-        stroke-width: 2px; }
+        stroke-width: 2px;
+      }
+      .c3-target.c3-focused path.c3-line {
+        @apply --granite-c3-target-focused-line;
+      }
+      .c3-target.c3-focused path.c3-step {
+        @apply --granite-c3-target-focused-step;
+      }
 
       .c3-target.c3-defocused {
-        opacity: 0.3 !important; }
+        opacity: 0.3 !important;
+        @apply --granite-c3-target-defocused;
+      }
 
       /*-- Region --*/
       .c3-region {
         fill: steelblue;
-        fill-opacity: .1; }
+        fill-opacity: .1;
+        @apply --granite-c3-region;
+      }
 
       /*-- Brush --*/
       .c3-brush .extent {
-        fill-opacity: .1; }
+        fill-opacity: .1;
+        @apply --granite-c3-brush-extent;
+      }
 
       /*-- Select - Drag --*/
       /*-- Legend --*/
       .c3-legend-item {
-        font-size: 12px; }
+        font-size: 12px;
+        @apply --granite-c3-legend-item;
+      }
 
       .c3-legend-item-hidden {
-        opacity: 0.15; }
+        opacity: 0.15;
+        @apply --granite-c3-legend-item-hiddne;
+      }
 
       .c3-legend-background {
         opacity: 0.75;
         fill: white;
         stroke: lightgray;
-        stroke-width: 1; }
+        stroke-width: 1;
+        @apply --granite-c3-legend-background;
+      }
 
       /*-- Title --*/
       .c3-title {
-        font: 14px sans-serif; }
+        font: 14px sans-serif;
+        @apply --granite-c3-title;
+      }
 
       /*-- Tooltip --*/
       .c3-tooltip-container {
-        z-index: 10; }
+        z-index: 10;
+        @apply --granite-c3-tooltip-container;
+      }
 
       .c3-tooltip {
         border-collapse: collapse;
@@ -117,69 +177,92 @@
         -webkit-box-shadow: 7px 7px 12px -9px #777777;
         -moz-box-shadow: 7px 7px 12px -9px #777777;
         box-shadow: 7px 7px 12px -9px #777777;
-        opacity: 0.9; }
+        opacity: 0.9;
+        @apply --granite-c3-tooltip;
+      }
 
       .c3-tooltip tr {
-        border: 1px solid #CCC; }
+        border: 1px solid #CCC;
+        @apply --granite-c3-tooltip-tr;
+      }
 
       .c3-tooltip th {
         background-color: #aaa;
         font-size: 14px;
         padding: 2px 5px;
         text-align: left;
-        color: #FFF; }
+        color: #FFF;
+        @apply --granite-c3-tooltip-th;
+      }
 
       .c3-tooltip td {
         font-size: 13px;
         padding: 3px 6px;
         background-color: #fff;
-        border-left: 1px dotted #999; }
+        border-left: 1px dotted #999;
+        @apply --granite-c3-tooltip-td;
+      }
 
       .c3-tooltip td > span {
         display: inline-block;
         width: 10px;
         height: 10px;
-        margin-right: 6px; }
+        margin-right: 6px;
+        @apply --granite-c3-tooltip-span;
+      }
 
       .c3-tooltip td.value {
-        text-align: right; }
+        text-align: right;
+        @apply --granite-c3-tooltip-value;
+      }
 
       /*-- Area --*/
       .c3-area {
         stroke-width: 0;
-        opacity: 0.2; }
+        opacity: 0.2;
+        @apply --granite-c3-area;
+      }
 
       /*-- Arc --*/
       .c3-chart-arcs-title {
         dominant-baseline: middle;
-        font-size: 1.3em; }
+        font-size: 1.3em;
+        @apply --granite-c3-chart-arcs-title;
+      }
 
       .c3-chart-arcs .c3-chart-arcs-background {
         fill: var(--c3-gauge-background-color,#e0e0e0);
-        stroke: none; }
+        stroke: none;
+      }
 
       .c3-chart-arcs .c3-chart-arcs-gauge-unit {
         fill: var(--c3-gauge-unit-color,#000);
-        font-size: var(--c3-gauge-min-size, 16px); }
+        font-size: var(--c3-gauge-min-size, 16px);
+      }
 
       .c3-chart-arcs .c3-chart-arcs-gauge-max {
         fill: var(--c3-gauge-max-color,#777);
-        font-size: var(--c3-gauge-max-size); }
+        font-size: var(--c3-gauge-max-size);
+      }
 
       .c3-chart-arcs .c3-chart-arcs-gauge-min {
-        fill: var(--c3-gauge-min-color,#777); 
-        font-size: var(--c3-gauge-min-size); }
+        fill: var(--c3-gauge-min-color,#777);
+        font-size: var(--c3-gauge-min-size);
+      }
 
       .c3-chart-arc .c3-gauge-value {
         fill: var(--c3-gauge-value-color,#000);
         font-size: var(--c3-gauge-value-size);
-        /*  font-size: 28px !important;*/ }
+        /*  font-size: 28px !important;*/
+      }
 
       .c3-chart-arc.c3-target g path {
-        opacity: 1; }
+        opacity: 1;
+      }
 
       .c3-chart-arc.c3-target.c3-focused g path {
-        opacity: 1; }
+        opacity: 1;
+      }
       .c3-region{
         fill-opacity: var(--xy-region-opacity,.1);
       }
