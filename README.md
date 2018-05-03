@@ -37,7 +37,9 @@ Install the component using [Bower](http://bower.io/):
 $ bower install LostInBrittany/granite-c3 --save
 ```
 
-Or [download as ZIP](https://github.com/LostInBrittany/granite-c3/archive/gh-pages.zip).## Usage
+Or [download as ZIP](https://github.com/LostInBrittany/granite-c3/archive/gh-pages.zip).
+
+## Usage
 
 1. Import Web Components' polyfill (if needed):
 
