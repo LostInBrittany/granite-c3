@@ -9,8 +9,12 @@
     "c3"
   ],
   "homepage": "https://github.com/LostInBrittany/granite-c3",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/LostInBrittany/granite-c3"
+	},
   "name": "@granite-elements/granite-c3",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "resolutions": {
     "inherits": "2.0.3",
     "samsam": "1.1.3",

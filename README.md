@@ -5,8 +5,8 @@
 
 A lightweight element wrapping-up [C3.js](http://c3js.org/), D3-based chart library
 
-> Based on Polymer 2.x.
-> The legacy Polymer 1.x version is available on `granite-c3-polymer.1.x.html`
+> Based on Polymer 3.x.
+> The legacy Polymer 2.x version is available [here](https://www.webcomponents.org/element/LostInBrittany/granite-c3/)
 
 ## Doc & demo
 
