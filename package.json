@@ -14,7 +14,7 @@
     "url": "https://github.com/LostInBrittany/granite-c3"
   },
   "name": "@granite-elements/granite-c3",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "resolutions": {
     "inherits": "2.0.3",
     "samsam": "1.1.3",
@@ -26,6 +26,7 @@
   "author": "Horacio Gonzalez <horacio.gonzalez@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@granite-elements/granite-external-dependencies": "^1.0.0",
     "@granite-elements/granite-js-dependencies-grabber": "^2.0.3",
     "@polymer/lit-element": "^0.5.1",
     "@polymer/polymer": "^3.0.0",

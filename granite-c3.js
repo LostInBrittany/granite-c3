@@ -2,25 +2,7 @@
 import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 import '@granite-elements/granite-js-dependencies-grabber/granite-js-dependencies-grabber.js';
-
-/* 
- * We need to get the C3 CSS to inject in in every instance of granite-c3 
- */
-
-let c3Css = null;
-
-function pathFromUrl(url) {
-  return url.substring(0, url.lastIndexOf('/') + 1);
-}
-
-async function getC3Css() {
-  let response = await fetch(`${pathFromUrl(import.meta.url)}../../c3/c3.min.css`);
-  c3Css = await response.text();
-  console.log('[granite-c3] getC3Css', c3Css);
-  document.dispatchEvent(new CustomEvent('c3-css-available'));
-} 
-getC3Css();
-
+import { GraniteCssInjector } from '@granite-elements/granite-external-dependencies/granite-css-injector.js'
 
 /* global c3 */
 /**
@@ -47,7 +29,7 @@ getC3Css();
  * @homepage index.html
  * @demo demo/index.html
  */
-class GraniteC3 extends PolymerElement {
+class GraniteC3 extends GraniteCssInjector(PolymerElement) {
   static get template() {
     return html`
     <style>
@@ -71,6 +53,7 @@ class GraniteC3 extends PolymerElement {
     <div id="chart"></div>    
   `;
   }
+  
   /** 
    * In order to statically import non ES mudules resources, you need to use `importPath`.
    * But in order to use `importPath`, for elements defined in ES modules, users should implement
@@ -79,6 +62,13 @@ class GraniteC3 extends PolymerElement {
    * More info on @Polymer/lib/mixins/element-mixin.js`
    */
   static get importMeta() { return import.meta; } 
+
+  static get cssFiles() {
+    return [
+        { name: 'c3', path: 'c3/c3.min.css' }
+    ];
+  }
+
 
   static get is() { return 'granite-c3'; }
   static get properties() {
@@ -297,20 +287,6 @@ class GraniteC3 extends PolymerElement {
 
   connectedCallback() {
     super.connectedCallback();
-
-    if (c3Css) {
-      if (this.debug) {
-        console.log('[granite-c3] connectedCallback - CSS already available');
-      }
-    } else {
-      if (this.debug) {
-        console.log('[granite-c3] connectedCallback - CSS not yet available');
-      }
-      document.addEventListener('c3-css-available', (evt) => {
-        console.log('[granite-c3] connectedCallback - received CSS available method');
-        this.shadowRoot.querySelector('style').appendChild(document.createTextNode(c3Css));
-      })
-    }
   }
 
 }
