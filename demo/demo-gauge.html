@@ -39,17 +39,29 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
     </script>
-    <link   rel="import" href="../../polymer/polymer.html">
+    <script type="module" src="../../../@polymer/polymer/polymer-legacy.js"></script>
 
 
-    <link rel="import" href="../../paper-styles/color.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-icons/iron-icons.html">
+    <script type="module" src="../../../@polymer/paper-styles/color.js"></script>
+    <script type="module" src="../../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
+    <script type="module" src="../../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+    <script type="module" src="../../../@polymer/iron-icons/iron-icons.js"></script>
 
-    <link rel="import" href="../../granite-c3/granite-c3.html">
+    <script type="module" src="../granite-c3.js"></script>
 
-    <style is="custom-style" include="demo-pages-shared-styles">
+    <!-- FIXME(polymer-modulizer):
+        These imperative modules that innerHTML your HTML are
+        a hacky way to be sure that any mixins in included style
+        modules are ready before any elements that reference them are
+        instantiated, otherwise the CSS @apply mixin polyfill won't be
+        able to expand the underlying CSS custom properties.
+        See: https://github.com/Polymer/polymer-modulizer/issues/154
+        -->
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+$_documentContainer.setAttribute('style', 'display: none;');
+
+$_documentContainer.innerHTML = `<style is="custom-style" include="demo-pages-shared-styles">
       .spacer-10 { width:100%; height:10px; }
       .spacer-50 { width:100%; height:50px; }
       .vertical-section-container {
@@ -61,43 +73,54 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
 
 
-    </style>
+    </style>`;
+
+document.head.appendChild($_documentContainer.content);
+</script>
   </head>
 
   <body unresolved>
-    <div class="vertical-section-container centered">
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
 
       <h3>granite-c3</h3>
       <demo-snippet class="centered-demo">
         <template>
-          <granite-c3 id="granite-c3"
-            data='{"columns":[],"type": "gauge" }'
-            gauge='{"units": " ", "min": 0, "max": 42}' 
-            color='{"pattern":["#FF0000", "#F97600", "#F6C600", "#60B044"], "threshold":{"values":[10, 20, 30, 40]}}'
-            debug></granite-c3>
+          <granite-c3 id="granite-c3" data="{&quot;columns&quot;:[],&quot;type&quot;: &quot;gauge&quot; }" gauge="{&quot;units&quot;: &quot; &quot;, &quot;min&quot;: 0, &quot;max&quot;: 42}" color="{&quot;pattern&quot;:[&quot;#FF0000&quot;, &quot;#F97600&quot;, &quot;#F6C600&quot;, &quot;#60B044&quot;], &quot;threshold&quot;:{&quot;values&quot;:[10, 20, 30, 40]}}" debug=""></granite-c3>
         </template>
       </demo-snippet>
-    </div>
+    </div>`;
 
-    <script>
-      let chart = document.querySelector('#granite-c3');
-      chart.gauge.label = {
-        format: (value, ratio) => { return value; },
-      };
+document.body.appendChild($_documentContainer.content);
+</script>
 
-      let value = 0;
+    <script type="module">
+import '@polymer/polymer/polymer-legacy.js';
+import '@polymer/paper-styles/color.js';
+import '@polymer/iron-demo-helpers/demo-snippet.js';
+import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
+import '@polymer/iron-icons/iron-icons.js';
+import '../granite-c3.js';
+let chart = document.querySelector('#granite-c3');
+chart.gauge.label = {
+  format: (value, ratio) => { return value; },
+};
 
-      let timeout = () => {
-        window.setTimeout(() => {
-          chart.data = {
-            columns: [['answer', value++]],
-            type: 'gauge',
-          };
-          value = value % 43;
-          timeout();
-        }, 300);
-      };
-      timeout();
-    </script>
+let value = 0;
+
+let timeout = () => {
+  window.setTimeout(() => {
+    chart.data = {
+      columns: [['answer', value++]],
+      type: 'gauge',
+    };
+    value = value % 43;
+    timeout();
+  }, 300);
+};
+timeout();
+</script>
   </body>
 </html>

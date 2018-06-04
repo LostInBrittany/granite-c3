@@ -1,0 +1,40 @@
+{
+  "description": "A lightweight element wrapping-up C3.js, D3-based chart library.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "lostinbrittany",
+    "d3",
+    "c3"
+  ],
+  "homepage": "https://github.com/LostInBrittany/granite-c3",
+  "name": "@granite-elements/granite-c3",
+  "version": "3.0.0",
+  "resolutions": {
+    "inherits": "2.0.3",
+    "samsam": "1.1.3",
+    "supports-color": "3.1.2",
+    "type-detect": "1.0.0",
+    "@webcomponents/webcomponentsjs": "2.0.0-beta.2"
+  },
+  "main": "granite-c3.js",
+  "author": "Horacio Gonzalez <horacio.gonzalez@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@granite-elements/granite-js-dependencies-grabber": "^2.0.1",
+    "@polymer/lit-element": "^0.5.1",
+    "@polymer/polymer": "^3.0.0",
+    "c3": "^0.6.1"
+  },
+  "devDependencies": {
+    "@polymer/iron-component-page": "^3.0.0-pre.18",
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.18",
+    "@polymer/iron-icon": "^3.0.0-pre.18",
+    "@polymer/iron-icons": "^3.0.0-pre.18",
+    "@polymer/iron-test-helpers": "^3.0.0-pre.18",
+    "@polymer/test-fixture": "^3.0.0-pre.18",
+    "wct-browser-legacy": "^0.0.1-pre.11",
+    "@webcomponents/webcomponentsjs": "^2.0.0"
+  }
+}
