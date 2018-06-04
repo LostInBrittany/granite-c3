@@ -2,6 +2,26 @@
 import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 import '@granite-elements/granite-js-dependencies-grabber/granite-js-dependencies-grabber.js';
+
+/* 
+ * We need to get the C3 CSS to inject in in every instance of granite-c3 
+ */
+
+let c3Css = null;
+
+function pathFromUrl(url) {
+  return url.substring(0, url.lastIndexOf('/') + 1);
+}
+
+async function getC3Css() {
+  let response = await fetch(`${pathFromUrl(import.meta.url)}../../c3/c3.min.css`);
+  c3Css = await response.text();
+  console.log('[granite-c3] getC3Css', c3Css);
+  document.dispatchEvent(new CustomEvent('c3-css-available'));
+} 
+getC3Css();
+
+
 /* global c3 */
 /**
  * `granite-c3`
@@ -275,21 +295,22 @@ class GraniteC3 extends PolymerElement {
     }
   }
 
-  async _getCss() {
-    let response = await fetch(`${this.importPath}../../c3/c3.min.css`);
-    this._c3CSS = await response.text();
-    if (this.debug) {
-      console.log('[granite-c3] _getCss', this._c3CSS);
-    }
-    this.shadowRoot.querySelector('style').appendChild(document.createTextNode(this._c3CSS));
-  }
-
   connectedCallback() {
     super.connectedCallback();
-    if (this.debug) {
-      console.log('[granite-c3] connectedCallback', this.properties, );
+
+    if (c3Css) {
+      if (this.debug) {
+        console.log('[granite-c3] connectedCallback - CSS already available');
+      }
+    } else {
+      if (this.debug) {
+        console.log('[granite-c3] connectedCallback - CSS not yet available');
+      }
+      document.addEventListener('c3-css-available', (evt) => {
+        console.log('[granite-c3] connectedCallback - received CSS available method');
+        this.shadowRoot.querySelector('style').appendChild(document.createTextNode(c3Css));
+      })
     }
-    this._getCss();
   }
 
 }
