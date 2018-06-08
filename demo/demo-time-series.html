@@ -92,6 +92,13 @@ $_documentContainer.innerHTML = `<div class="vertical-section-container centered
         </template>
       </demo-snippet>
 
+
+      <h3>Time-series</h3>
+      <demo-snippet class="centered-demo">
+        <template>
+          <granite-c3 data="{&quot;x&quot;: &quot;x&quot;, &quot;columns&quot;: [[&quot;x&quot;, &quot;2013-01-01&quot;, &quot;2013-01-02&quot;, &quot;2013-01-03&quot;, &quot;2013-01-04&quot;, &quot;2013-01-05&quot;, &quot;2013-01-06&quot;],[&quot;data1&quot;, 30, 200, 100, null, 150, 250],[&quot;data2&quot;,130, 340, 200, null, 200, 350]],&quot;type&quot;: &quot;step&quot;}" axis="{ &quot;x&quot;: {&quot;type&quot;: &quot;timeseries&quot;, &quot;tick&quot;: { &quot;format&quot;: &quot;%Y-%m-%d&quot;} } }"></granite-c3>
+        </template>
+      </demo-snippet>
     </div>`;
 
 document.body.appendChild($_documentContainer.content);
