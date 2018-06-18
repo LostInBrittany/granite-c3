@@ -25,7 +25,7 @@
   "author": "Horacio Gonzalez <horacio.gonzalez@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@granite-elements/granite-external-dependencies": "^1.0.4",
+    "@granite-elements/granite-external-dependencies": "^1.0.5",
     "@granite-elements/granite-js-dependencies-grabber": "^2.0.3",
     "@polymer/lit-element": "^0.5.1",
     "@polymer/polymer": "^3.0.0",
@@ -41,5 +41,5 @@
     "@webcomponents/webcomponentsjs": "^2.0.0",
     "wct-browser-legacy": "^1.0.1"
   },
-  "version": "3.1.5"
+  "version": "3.1.6"
 }
