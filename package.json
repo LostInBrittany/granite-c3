@@ -41,5 +41,5 @@
     "@webcomponents/webcomponentsjs": "^2.0.0",
     "wct-browser-legacy": "^1.0.1"
   },
-  "version": "3.1.6"
+  "version": "3.2.0"
 }
